@@ -5,11 +5,13 @@ import 'Login/login_screen.dart';
 
 void main()
 {
-  runApp(Myapp());
+  runApp(const Myapp());
 }
 
 class Myapp extends StatelessWidget
 {
+  const Myapp({super.key});
+
   @override
   Widget build(BuildContext context) {
 
@@ -21,16 +23,6 @@ class Myapp extends StatelessWidget
             bodyLarge :TextStyle(
               color: Colors.white,
               fontSize: 30
-            ),
-            //player1 text
-            titleLarge :TextStyle(
-              color: Colors.black,
-              fontSize: 25
-            ),
-          //player2 text
-            bodyMedium:TextStyle(
-              color: Colors.white,
-              fontSize: 25
             ),
 
         ),

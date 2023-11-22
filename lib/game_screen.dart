@@ -7,7 +7,9 @@ import 'game_button.dart';
 class GameScreen extends StatefulWidget {
   String player1Name;
   String player2Name;
-   GameScreen({super.key,required this.player1Name,required this.player2Name});
+  String player1Symbol;
+  String player2Symbol;
+   GameScreen({super.key,required this.player1Name,required this.player2Name,required this.player1Symbol,required this.player2Symbol});
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -40,7 +42,9 @@ class _GameScreenState extends State<GameScreen> {
           children: [
             BoardHeader(playScore1: player1Score,playScore2: player2Score,
             player1Name: widget.player1Name,
-            player2Name: widget.player2Name
+            player2Name: widget.player2Name,
+              player1Symbol: widget.player1Symbol,
+              player2Symbol: widget.player2Symbol,
             ),
             Expanded(
               flex: 2,
@@ -104,26 +108,57 @@ class _GameScreenState extends State<GameScreen> {
      {
        return ;
      }
-    if(counter %2 == 0)
-      {
-        boardState[index] = "X";
-      }
-    else
-    {
-      boardState[index] = "O";
-    }
+     if(widget.player1Symbol == "X")
+       {
+         if(counter %2 == 0)
+         {
+           boardState[index] = "X";
+         }
+         else
+         {
+           boardState[index] = "O";
+         }
+       }
+     else if(widget.player1Symbol == "O")
+       {
+         if(counter %2 == 0)
+         {
+           boardState[index] = "O";
+         }
+         else
+         {
+           boardState[index] = "X";
+         }
+       }
     counter++;
     setState(() {
 
     });
+
     if(checkWinner("X"))
       {
-        player1Score++ ;
+
+        if(widget.player1Symbol == "X")
+          {
+            player1Score++ ;
+          }
+        else if(widget.player1Symbol == "O")
+          {
+            player2Score++ ;
+          }
         resetBoard();
       }
     else if(checkWinner("O"))
       {
-       player2Score++ ;
+
+       if(widget.player2Symbol == "O")
+       {
+         player2Score++ ;
+       }
+       else if(widget.player2Symbol == "X")
+       {
+         player1Score++ ;
+       }
        resetBoard();
       }
      else if(counter == 9)
