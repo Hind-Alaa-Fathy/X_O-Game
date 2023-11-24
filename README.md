@@ -3,12 +3,6 @@
 
 This is a flutter project which you can play X/O game with any person you want to play with.
 
-# X/O Game Video
- click on logo to see video
-# <a href="https://youtu.be/oz9tM8GNWJc" target="_blank">
-  <img src="https://github.com/Hind-Alaa-Fathy/X_O-Game/raw/main/X_O%20logo.png" alt="Watch the video" width="200">
-</a>
-
 
 
 ## app Screens
